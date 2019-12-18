@@ -1,0 +1,30 @@
+<!-- templates/playlists_index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Home Page</h1>
+<!-- list product -->
+<div class="container mb-4">
+    <div class="row justify-content-center">
+      <ul class="list-group list-group-horizontal-md pb-2 pt-3 list-unstyled" id='item_ul'>
+          {% for item in items %}
+        <li class="p-4 item">
+          <div class="card border-0" style="width: 15rem;">
+            <img class="card-img-top" src='{{item.image}}'>
+            <div class="card-body text-body" style="background-color:#f6f6f6">
+              <h5 class="card-title">{{item.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{item.description}}</h6>
+              <h5 class="card-title">{{item.price}}</h5>
+              <!-- <p class="card-text">2679 sold</p> -->
+              <div class="w-100 text-center">
+                <a href="item/{{item._id}}">Buy Now</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {% endfor %}
+      </ul>
+    </div>
+</div>
+{% endblock %}
